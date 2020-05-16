@@ -62,6 +62,9 @@ window.onload = () => {
     mycontract.methods.get3().call().then((fromblockchain1) => {
         console.log("get3 answer is " + fromblockchain1);
     });
+
+    document.getElementById("bt").style="visibility: visible;"
+
 }
 
 sendTX = () => {
