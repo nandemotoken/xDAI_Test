@@ -64,4 +64,11 @@ mycontract.methods.get3().call().then((fromblockchain1) => {
     console.log("get3 answer is " + fromblockchain1);
   });
 
+let n = window.prompt("input number to write blockchain")
+
+if (n) {
+    mycontract.methods.setnumber( n ).send({ from: accounts[0] });
+}
+
+
 }
