@@ -55,7 +55,7 @@ window.onload = () => {
         }
     ]
 
-    mycontract = new web3.eth.Contract(ABI, Address);
+    mycontract = new web3js.eth.Contract(ABI, Address);
 
     console.log(web3.version)
 
