@@ -1,7 +1,9 @@
+let web3js
+
 window.onload = () => {
 
     const portis = new Portis('6ae05414-fd51-41d5-bd20-db8d944e86a9', 'xdai')
-    const web3js = new Web3(portis.provider)
+    web3js = new Web3(portis.provider)
 
     web3js.eth.getAccounts((error, accounts) => {
         console.log(accounts);
