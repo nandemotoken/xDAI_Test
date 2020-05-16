@@ -1,74 +1,74 @@
 
-window.onload = ()=> {
+window.onload = () => {
 
-const portis = new Portis('6ae05414-fd51-41d5-bd20-db8d944e86a9', 'xdai')
-const web3 = new Web3(portis.provider)
+    const portis = new Portis('6ae05414-fd51-41d5-bd20-db8d944e86a9', 'xdai')
+    const web3 = new Web3(portis.provider)
 
-web3.eth.getAccounts((error, accounts) => {
-    console.log(accounts);
-  });
+    web3.eth.getAccounts((error, accounts) => {
+        console.log(accounts);
+    });
 
-const Address = "0x589A65f3dA3Cf199cd4382F53DA0C819cB8c2859";
+    const Address = "0x589A65f3dA3Cf199cd4382F53DA0C819cB8c2859";
 
-//remixのボタンを押して取得したABIを貼り付け
-const ABI = [
-  {
-    "constant": false,
-    "inputs": [
-      {
-        "name": "n",
-        "type": "uint256"
-      }
-    ],
-    "name": "setnumber",
-    "outputs": [],
-    "payable": false,
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "get3",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "constant": true,
-    "inputs": [],
-    "name": "getnumber",
-    "outputs": [
-      {
-        "name": "",
-        "type": "uint256"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  }
-]
+    //remixのボタンを押して取得したABIを貼り付け
+    const ABI = [
+        {
+            "constant": false,
+            "inputs": [
+                {
+                    "name": "n",
+                    "type": "uint256"
+                }
+            ],
+            "name": "setnumber",
+            "outputs": [],
+            "payable": false,
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "get3",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "constant": true,
+            "inputs": [],
+            "name": "getnumber",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "payable": false,
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ]
 
-mycontract = new web3.eth.Contract(ABI, Address);
+    mycontract = new web3.eth.Contract(ABI, Address);
 
-console.log(web3.version)
+    console.log(web3.version)
 
-mycontract.methods.get3().call().then((fromblockchain1) => {
-    console.log("get3 answer is " + fromblockchain1);
-  });
-
-let n = window.prompt("input number to write blockchain")
-
-if (n) {
-    mycontract.methods.setnumber( n ).send({ from: accounts[0] });
+    mycontract.methods.get3().call().then((fromblockchain1) => {
+        console.log("get3 answer is " + fromblockchain1);
+    });
 }
 
+sendTX = () => {
+    let n = window.prompt("input number to write blockchain")
 
+    if (n) {
+        mycontract.methods.setnumber(n).send({ from: accounts[0] });
+    }
 }
