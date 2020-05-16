@@ -61,8 +61,8 @@ window.onload = () => {
 
     console.log(web3js.version)
 
-    mycontract.methods.get3().call().then((fromblockchain1) => {
-        console.log("get3 answer is " + fromblockchain1);
+    mycontract.methods.getnumber().call().then((fromblockchain1) => {
+        console.log("getnumber value is " + fromblockchain1);
     });
 
     document.getElementById("bt").style="visibility: visible;"
