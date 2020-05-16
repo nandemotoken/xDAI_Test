@@ -62,7 +62,7 @@ window.onload = () => {
     console.log(web3js.version)
 
     mycontract.methods.getnumber().call().then((fromblockchain1) => {
-        console.log("getnumber value is " + fromblockchain1);
+        window.alert("getnumber value is " + fromblockchain1);
     });
 
     document.getElementById("bt").style="visibility: visible;"
