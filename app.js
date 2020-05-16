@@ -57,7 +57,7 @@ window.onload = () => {
 
     mycontract = new web3js.eth.Contract(ABI, Address);
 
-    console.log(web3.version)
+    console.log(web3js.version)
 
     mycontract.methods.get3().call().then((fromblockchain1) => {
         console.log("get3 answer is " + fromblockchain1);
