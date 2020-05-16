@@ -1,4 +1,3 @@
-
 window.onload = () => {
 
     const portis = new Portis('6ae05414-fd51-41d5-bd20-db8d944e86a9', 'xdai')
@@ -69,6 +68,8 @@ sendTX = () => {
     let n = window.prompt("input number to write blockchain")
 
     if (n) {
+        web3.eth.getAccounts((error, accounts) => {
         mycontract.methods.setnumber(n).send({ from: accounts[0] });
+        })
     }
 }
